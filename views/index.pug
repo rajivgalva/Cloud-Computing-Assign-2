@@ -1,0 +1,69 @@
+html  
+ head
+    meta(charset='utf-8')
+    title Cocktail Receipe Finder
+    link(rel='stylesheet', type='text/css', href='/css/style.css')
+    script(script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js')
+    link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
+
+ body
+   h1 Hello World, this is #{siteName}!
+
+        //- if user != null
+        //-     p Hi there, #{user.username}!
+        //- else
+        //-     p Hi there, unknown person!
+
+        //- p Have some vegetables: 
+
+
+
+   .container-fluid
+      .row
+        .col-md-12
+          form.form-horizontal.form-search(action='/search', method='POST', enctype='application/x-www-form-urlencoded')
+            fieldset
+              // Form Name
+              legend Get your drink
+              // Button Drop Down
+              .form-group
+                label.col-md-4.control-label(for="buttondropdown") Search
+                .col-md-4
+                  .input-group
+                    input.form-control(name="search",placeholder="Search", type="text", required="",id="searchbar")
+              // Button
+              .form-group
+                label.col-md-4.control-label(for="submit")
+                .col-md-4
+                  button#submit.btn.btn-success(type="submit") Search
+      .row
+        for data in result
+          for drink in data
+            .col-md-4
+              h3
+                h3 #{drink.strDrink}
+                
+              img.drinks(alt=drink.strDrink src=drink.strDrinkThumb)
+              br
+              form.form-horizontal.form-search(action='/drink', method='POST', enctype='application/x-www-form-urlencoded')
+                button.btn.btn-warning.imgbtn(type="button",name = "drinkid",value = drink.idDrink) Get Receipe
+        //- .col-md-4
+        //-   h3
+        //-     | h3. Lorem ipsum dolor sit amet.
+        //-   img(alt="Bootstrap Image Preview" src="http://www.layoutit.com/img/sports-q-c-140-140-3.jpg")
+        //-   button.btn.btn-success(type="button")
+        //-     | Button
+        //- .col-md-4
+        //-   h3
+        //-     | h3. Lorem ipsum dolor sit amet.
+        //-   img(alt="Bootstrap Image Preview" src="http://www.layoutit.com/img/sports-q-c-140-140-3.jpg")
+        //-   button.btn.btn-success(type="button")
+        //-     | Button
+
+        //-   ul
+        //-     //- if result = null
+        //-     for data in result
+        //-       for drink in data
+        //-         li= drink.strDrink
