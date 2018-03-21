@@ -22,3 +22,39 @@
 .imgbtn{
     margin: 20px
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+body {
+    padding-top: 54px;
+  }
+  
+  @media (min-width: 992px) {
+    body {
+      padding-top: 56px;
+    }
+  }
+  
+  .portfolio-item {
+    margin-bottom: 30px;
+  }
+  
+  .pagination {
+    margin-bottom: 30px;
+  }
+
+  .bg-image-full {
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+  }
+
+  th, td {
+    padding: 10px;
+}
