@@ -9,7 +9,7 @@ html
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:300', rel='stylesheet', type='text/css')
 
  body
-   h1 Hello World, this is #{siteName}!
+   h1 Get Your Cocktail Recipe!
 
         //- if user != null
         //-     p Hi there, #{user.username}!
@@ -47,23 +47,5 @@ html
                 
               img.drinks(alt=drink.strDrink src=drink.strDrinkThumb)
               br
-              form.form-horizontal.form-search(action='/drink', method='POST', enctype='application/x-www-form-urlencoded')
-                button.btn.btn-warning.imgbtn(type="button",name = "drinkid",value = drink.idDrink) Get Receipe
-        //- .col-md-4
-        //-   h3
-        //-     | h3. Lorem ipsum dolor sit amet.
-        //-   img(alt="Bootstrap Image Preview" src="http://www.layoutit.com/img/sports-q-c-140-140-3.jpg")
-        //-   button.btn.btn-success(type="button")
-        //-     | Button
-        //- .col-md-4
-        //-   h3
-        //-     | h3. Lorem ipsum dolor sit amet.
-        //-   img(alt="Bootstrap Image Preview" src="http://www.layoutit.com/img/sports-q-c-140-140-3.jpg")
-        //-   button.btn.btn-success(type="button")
-        //-     | Button
-
-        //-   ul
-        //-     //- if result = null
-        //-     for data in result
-        //-       for drink in data
-        //-         li= drink.strDrink
+              form.form-horizontal.form-search(action='/drinkid', method='POST', enctype='application/x-www-form-urlencoded')
+                button.btn.btn-warning.imgbtn(type="submit",name = "drinkid",value = drink.idDrink) Get Receipe

@@ -6,7 +6,6 @@ const bodyParser = require('body-parser')
 var param ="beer";
 var did = "";
 
-
 app.use(bodyParser.json());
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'pug');
@@ -15,8 +14,8 @@ app.use(bodyParser.json());
 app.use(express.static('public'));
 
 
-app.listen(2400, function () {
-    console.log('Example app listening on port 2400!');
+app.listen(process.env.PORT || 3000, function () {
+    console.log('Example app listening on port 3000!');
 })
 
 
@@ -36,10 +35,20 @@ app.post('/search', (req, res) => {
     res.redirect('/')
 })
 
-app.post('/drink', (req, res) => {
-    param = req.body.search;
-    module.exports.drinkid = did; 
-    res.redirect('/')
+app.post('/drinkid', (req, res) => {
+    did = req.body.drinkid;
+    module.exports.drinkid = did;
+    console.log(param)
+    res.redirect('/drink')
 })
 
+app.get('/drink', function (req, res) {
+    //res.send('Hello World!');  
+    api.apiDrink(function (data) {
+        // render to the index.jade and pass the data from api call
+        res.render('drink',{drinkresult:data});
+      });
+  })
+
 module.exports.parameter = param; 
+module.exports.drinkid = did; 
